@@ -14,6 +14,7 @@ let HeroMoves = {
     calcAttack: function() {
 
         // ! Who attacks first.
+        const actions = document.querySelector('.actions');
         let heroSpeed = hero.speed;
         let enemySpeed = enemy.speed;
 
@@ -62,11 +63,12 @@ let HeroMoves = {
         if (heroSpeed >= enemySpeed) {
             let heroAttackValues = heroAttack();
             let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-            enemy.health = enemy.health - totalDamage;
+            enemy.health = Math.trunc(enemy.health - totalDamage);
             alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
 
-            if (enemy.health <= 0) {
-                alert("You won!"); // ! Add functionality.
+            if (enemy.health <= 0 && hero.health > enemy.health) {
+                // ! Winner
+                    actions.innerHTML = '<p class="find">You win!!</p>';
                 enemyHealth.innerHTML = 'Health: 0';
                 heroHealth.innerHTML = 'Health: ' + hero.health;
             } else {
@@ -76,11 +78,12 @@ let HeroMoves = {
                 let enemyAttackValues = enemyAttack();
                 
                 let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-                hero.health = hero.health - totalDamage;
-                alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] +     " times.");
+                hero.health = Math.trunc(hero.health - totalDamage);
+                alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
 
-                if (hero.health <= 0) {
-                    alert("You loose!"); // ! Add functionality.
+                if (hero.health <= 0 && enemy.health > hero.health) {
+                    // ! Winner
+                    actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p>';
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                     heroHealth.innerHTML = 'Health: 0';
                 } else {
@@ -89,14 +92,15 @@ let HeroMoves = {
                 
             }
 
-        } else if (enemySpeed >= heroSpeed) {
+        } else if (enemySpeed > heroSpeed) {
             let enemyAttackValues = enemyAttack();
             let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
             hero.health = hero.health - totalDamage;
             alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
 
-            if (hero.health <= 0) {
-                alert("You loose!"); // ! Add functionality.
+            if (hero.health <= 0 && enemy.health > hero.health) {
+                // ! Winner
+                actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p>';
                 heroHealth.innerHTML = 'Health: 0';
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
             } else {
@@ -109,8 +113,9 @@ let HeroMoves = {
                 enemy.health = enemy.health - totalDamage;
                 alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
 
-                if (enemy.health <= 0) {
-                    alert("You win!"); // ! Add functionality.
+                if (enemy.health <= 0 && hero.health > enemy.health) {
+                    // ! Winner
+                    actions.innerHTML = '<p class="find">You win!!</p>';
                     heroHealth.innerHTML = 'Health: ' + hero.health;
                     enemyHealth.innerHTML = 'Health: 0';
                 } else {

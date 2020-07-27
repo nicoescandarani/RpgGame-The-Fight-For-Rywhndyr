@@ -67,8 +67,10 @@ let GameManager = {
 
         const enemy0 = new Enemy('Vulur', 100, 0, 50, 100, 100);
         const enemy1 = new Enemy('Wndorf', 200, 0, 150, 80, 150);
+        const enemy2 = new Enemy('Dulkar', 200, 0, 150, 80, 150);
+        const enemy3 = new Enemy('Ösgrwd', 200, 0, 150, 80, 150);
 
-        const chooseEnemy = Math.floor(Math.random() * Math.floor(2));
+        const chooseEnemy = Math.floor(Math.random() * Math.floor(4));
         
         switch (chooseEnemy) {
             case 0:
@@ -76,6 +78,12 @@ let GameManager = {
                 break;
             case 1:
                 enemy = enemy1;
+                break;
+            case 2:
+                enemy = enemy2;
+                break;
+            case 3:
+                enemy = enemy3;
                 break;
         }
         
