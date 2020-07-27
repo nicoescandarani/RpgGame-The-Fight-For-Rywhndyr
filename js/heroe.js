@@ -1,9 +1,9 @@
 class Hero {
-    constructor(type, health, mana, strength, agility, speed) {
+    constructor(type, health, magic, strength, agility, speed) {
         this.type = type;
         this.health = health;
         this.strength = strength;
-        this.mana = mana;
+        this.magic = magic;
         this.agility = agility;
         this.speed = speed;
     }
@@ -20,8 +20,8 @@ let HeroMoves = {
         let heroAttack = function() {
             let calcBaseDamage;
     
-            if (hero.mana > 0) {
-                calcBaseDamage = hero.strength * hero.mana / 1000;
+            if (hero.magic > 0) {
+                calcBaseDamage = hero.strength * hero.magic / 1000;
             } else {
                 calcBaseDamage = hero.strength * hero.agility / 1000;
             }
@@ -38,8 +38,8 @@ let HeroMoves = {
         let enemyAttack = function() {
             let calcBaseDamage;
     
-            if (enemy.mana > 0) {
-                calcBaseDamage = enemy.strength * enemy.mana / 1000;
+            if (enemy.magic > 0) {
+                calcBaseDamage = enemy.strength * enemy.magic / 1000;
             } else {
                 calcBaseDamage = enemy.strength * enemy.agility / 1000;
             }

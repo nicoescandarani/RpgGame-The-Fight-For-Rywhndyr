@@ -39,7 +39,7 @@ let GameManager = {
 
         let interface = document.querySelector('.interface');
 
-        interface.innerHTML = '<div class= "characterCard play"> <h3 class="characterName">' + hero.type + '</h3> <div class="img-wrapper"><img src= "../Assets/' + type + '.png" alt="' + type + '"class="avatar"> </div><div> <p class="stats hero-health">Health: ' + hero.health + '</p><p class="stats">Mana: ' + hero.mana + '</p><p class="stats">Strength: ' + hero.strength + '</p><p class="stats">Agility: ' + hero.agility + '</p><p class="stats">Speed: ' + hero.speed + '</p> </div> </div>';
+        interface.innerHTML = '<div class= "characterCard play"> <h3 class="characterName">' + hero.type + '</h3> <div class="img-wrapper"><img src= "../Assets/' + type + '.png" alt="' + type + '"class="avatar"> </div><div> <p class="stats hero-health">Health: ' + hero.health + '</p><p class="stats">Magic: ' + hero.magic + '</p><p class="stats">Strength: ' + hero.strength + '</p><p class="stats">Agility: ' + hero.agility + '</p><p class="stats">Speed: ' + hero.speed + '</p> </div> </div>';
 
     },
 
@@ -81,7 +81,7 @@ let GameManager = {
         
         actions.innerHTML = '<a href="#" class="find" onClick="HeroMoves.calcAttack()">Attack!</a>';
 
-        enemySection.innerHTML = '<div class="characterCard play"><h3 class="characterName">' + enemy.type + '</h3> <div class="img-wrapper"><img src= "../Assets/' + enemy.type + '.png" alt="' + enemy.type + '"class="avatar"> </div><div>  <p class="stats enemy-health">Health: ' + enemy.health + '</p><p class="stats">Mana: ' + hero.mana + '</p><p class="stats">Strength: ' + enemy.strength + '</p><p class="stats">Agility: ' + enemy.agility + '</p><p class="stats">Speed: ' + enemy.speed + '</p> </div> </div>';
+        enemySection.innerHTML = '<div class="characterCard play"><h3 class="characterName">' + enemy.type + '</h3> <div class="img-wrapper"><img src= "../Assets/' + enemy.type + '.png" alt="' + enemy.type + '"class="avatar"> </div><div>  <p class="stats enemy-health">Health: ' + enemy.health + '</p><p class="stats">Magic: ' + hero.magic + '</p><p class="stats">Strength: ' + enemy.strength + '</p><p class="stats">Agility: ' + enemy.agility + '</p><p class="stats">Speed: ' + enemy.speed + '</p> </div> </div>';
 
     }
 }
