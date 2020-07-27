@@ -4,71 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="js/gameManager.js">
-    <link rel="stylesheet" href="js/heroe.js">
-    <link rel="stylesheet" href="js/enemy.js">
+    <script src="js/gameManager.js"></script>
+    <script src="js/heroe.js"></script>
+    <script src="js/enemy.js"></script>
     <title>Cards Game</title>
 </head>
 <body>
 
-    <div class="main">
-    
-        <h1 class="title">Do you dare to play?</h1>
-        <p class="choose">Choose yout character!</p>
+    <div class="container">
 
-        <div class="cards-wrapper">
+        <div class="interface">
 
-            <div class="characterCard">
-                <h2 class="characterName">Wizard</h2>
-                <div class="img-wrapper">
-                    <img src="Assets/Wizard.png" alt="Wizard">
+            <div class="main">
+
+                <div class="header">
+                
+                    <h1 class="title">Do you dare to play?</h1>
+                    <p class="choose">Choose yout character!</p>
+
                 </div>
-                <p class="description">Character description</p>
-            </div>
 
-            <div class="characterCard">
-                <h2 class="characterName">Dragon</h2>
-                <div class="img-wrapper">
-                    <img src="Assets/Dragon.png" alt="Wizard">
-                </div>
-                <p class="description">Character description</p>
-            </div>
+                <div class="cards-wrapper">
 
-            <div class="characterCard">
-                <h2 class="characterName">Swordsman</h2>
-                <div class="img-wrapper">
-                    <img src="Assets/Swordsman.png" alt="Wizard">
-                </div>
-                <p class="description">Character description</p>
-            </div>
+                    <div class="characterCard" onclick="GameManager.startGame('Valdimir')">
+                        <h2 class="characterName">Valdimir</h2>
+                        <div class="img-wrapper">
+                            <img src="Assets/Valdimir.png" alt="Wizard">
+                        </div>
+                        <p class="description">Character description</p>
+                    </div>
 
-            <div class="characterCard">
-                <h2 class="characterName">Tigerman</h2>
-                <div class="img-wrapper">
-                    <img src="Assets/Tigerman.png" alt="Wizard">
-                </div>
-                <p class="description">Character description</p>
-            </div>
+                    <div class="characterCard" onclick="GameManager.startGame('Kiarst')">
+                        <h2 class="characterName">Kiarst</h2>
+                        <div class="img-wrapper">
+                            <img src="Assets/Kiarst.png" alt="Wizard">
+                        </div>
+                        <p class="description">Character description</p>
+                    </div>
 
-            <div class="characterCard">
-                <h2 class="characterName">Warrior</h2>
-                <div class="img-wrapper">
-                    <img src="Assets/Warrior.png" alt="Wizard">
-                </div>
-                <p class="description">Character description</p>
-            </div>
+                    <div class="characterCard" onclick="GameManager.startGame('Ortanna')">
+                        <h2 class="characterName">Ortanna</h2>
+                        <div class="img-wrapper">
+                            <img src="Assets/Ortanna.png" alt="Wizard">
+                        </div>
+                        <p class="description">Character description</p>
+                    </div>
 
-            <div class="characterCard">
-                <h2 class="characterName">Mage</h2>
-                <div class="img-wrapper">
-                    <img src="Assets/Mage.png" alt="Wizard">
+                    <div class="characterCard" onclick="GameManager.startGame('Rovast')">
+                        <h2 class="characterName">Rovast</h2>
+                        <div class="img-wrapper">
+                            <img src="Assets/Rovast.png" alt="Wizard">
+                        </div>
+                        <p class="description">Character description</p>
+                    </div>
+
+                    <div class="characterCard" onclick="GameManager.startGame('Terastor')">
+                        <h2 class="characterName">Terastor</h2>
+                        <div class="img-wrapper">
+                            <img src="Assets/Terastor.png" alt="Wizard">
+                        </div>
+                        <p class="description">Character description</p>
+                    </div>
+
+                    <div class="characterCard" onclick="GameManager.startGame('Tilyar')">
+                        <h2 class="characterName">Tilyar</h2>
+                        <div class="img-wrapper">
+                            <img src="Assets/Tilyar.png" alt="Wizard">
+                        </div>
+                        <p class="description">Character description</p>
+                    </div>
+
                 </div>
-                <p class="description">Character description</p>
+
             </div>
 
         </div>
 
+        <div class="actions">
+
+        </div>
+
+        <div class="enemy">
+
+        </div>
+
     </div>
-    
+
 </body>
 </html>
