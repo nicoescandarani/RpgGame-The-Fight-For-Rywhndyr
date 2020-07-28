@@ -7,7 +7,12 @@
 }
 
 body {
+    height: 100vh;
     background-color: #2b2b2b;
+    /* background-image: url(Assets/City.jpg); */
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -96,4 +101,9 @@ img {
 
 .game-on {
     width: 36%!important;
+}
+
+.race {
+    margin-bottom: 20px;
+    font-size: 26px;
 }

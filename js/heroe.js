@@ -1,5 +1,6 @@
 class Hero {
-    constructor(type, health, magic, strength, agility, speed) {
+    constructor(type, race, health, magic, strength, agility, speed) {
+        this.race = race;
         this.type = type;
         this.health = health;
         this.strength = strength;
@@ -12,6 +13,9 @@ class Hero {
 let HeroMoves = {
 
     calcAttack: function() {
+        // ! Fix this. ---------------------------------------------->
+        let pointsCounter = localStorage.getItem('points');
+        console.log(pointsCounter);
 
         // ! Who attacks first.
         const actions = document.querySelector('.actions');
@@ -68,9 +72,13 @@ let HeroMoves = {
 
             if (enemy.health <= 0 && hero.health > enemy.health) {
                 // ! Winner
-                    actions.innerHTML = '<p class="find">You win!!</p>';
+                actions.innerHTML = '<p class="find">You win!!</p>';
                 enemyHealth.innerHTML = 'Health: 0';
                 heroHealth.innerHTML = 'Health: ' + hero.health;
+                    
+                pointsCounter++;
+                console.log(pointsCounter);
+                HeroMoves.storePoint(pointsCounter);
             } else {
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
                 // ! The enemy attacks.
@@ -86,6 +94,10 @@ let HeroMoves = {
                     actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p>';
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                     heroHealth.innerHTML = 'Health: 0';
+                    
+                    pointsCounter++;
+                    localStorage.setItem('points', pointsCounter);
+
                 } else {
                     heroHealth.innerHTML = 'Health: ' + hero.health;
                 }
@@ -103,6 +115,7 @@ let HeroMoves = {
                 actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p>';
                 heroHealth.innerHTML = 'Health: 0';
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
+                
             } else {
                 heroHealth.innerHTML = 'Health: ' + hero.health;
                 // ! The hero attacks.
@@ -118,6 +131,10 @@ let HeroMoves = {
                     actions.innerHTML = '<p class="find">You win!!</p>';
                     heroHealth.innerHTML = 'Health: ' + hero.health;
                     enemyHealth.innerHTML = 'Health: 0';
+
+                    pointsCounter++;
+                    localStorage.setItem('points', pointsCounter);
+
                 } else {
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                 }
@@ -126,6 +143,10 @@ let HeroMoves = {
 
         }
 
+    },
+
+    storePoint: function(num) {
+        localStorage.setItem('points', num);
     }
     
 }
