@@ -9,7 +9,6 @@
 body {
     height: 100vh;
     background-color: #2b2b2b;
-    /* background-image: url(Assets/City.jpg); */
     background-position: 50%, 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,6 +18,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .main {
@@ -37,8 +38,6 @@ body {
 }
 
 .cards-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -51,20 +50,25 @@ body {
     background-color: #241711;
     text-align: center;
     cursor: pointer;
-    width: 31%;
+    width: 26%;
+    position: relative;
 }
 
-.img-wrapper {
-    background-color: rgb(44, 44, 44);
-    margin-bottom: 20px;
+.hero-img {
+    background-size: cover;
+    height: 340px;
+    max-width: 290px;
+    margin: 0 auto;
     border-radius: 6px;
+    margin-bottom: 10px;
 }
 
-img {
-    height: 300px;
-    width: 200px;
-    object-fit: contain;
-}
+.vald { background-image: url(Assets/Valdimir.png); }
+.kiar { background-image: url(Assets/Kiarst.png); }
+.ort { background-image: url(Assets/Ortanna.png); }
+.rov { background-image: url(Assets/Rovast.png); }
+.tera { background-image: url(Assets/Terastor.png); }
+.til { background-image: url(Assets/Tilyar.png); }
 
 .characterName {
     font-size: 30px;
@@ -75,7 +79,37 @@ img {
     font-size: 20px;
 }
 
-/* Game */
+.description-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    bottom: 0;
+    left: 0;
+    font-size: 24px;
+    line-height: 30px;
+    background-color: #141414ce;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+}
+
+.characterCard:hover > .description-overlay {
+    height: 100%;
+    opacity: 1;
+}
+
+.description-active {
+    height: 100%;
+    opacity: 1;
+}
+
+/* ! Game */
 
 .find {
     text-decoration: none;
@@ -104,6 +138,5 @@ img {
 }
 
 .race {
-    margin-bottom: 20px;
     font-size: 26px;
 }
