@@ -8,17 +8,31 @@
 
 body {
     height: 100vh;
+    background-image: url(Assets/Castle1.jpg);
     background-color: #2b2b2b;
-    background-position: 50%, 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+.ashes-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(Assets/source.gif);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 10%;
+    z-index: -1;
 }
 
 .container {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -46,12 +60,18 @@ body {
 .characterCard {
     margin-bottom: 40px;
     border-radius: 6px;
+    padding-top: 70px;
     padding: 20px;
-    background-color: #241711;
+    /* background-color: #241711; */
     text-align: center;
     cursor: pointer;
-    width: 26%;
+    height: 550px;
+    width: 30%;
     position: relative;
+    background-image: url(Assets/RpgParchment.png);
+    background-size: cover;
+    background-position: center;
+    /* overflow: auto; */
 }
 
 .hero-img {
@@ -63,40 +83,49 @@ body {
     margin-bottom: 10px;
 }
 
-.vald { background-image: url(Assets/Valdimir.png); }
-.kiar { background-image: url(Assets/Kiarst.png); }
-.ort { background-image: url(Assets/Ortanna.png); }
-.rov { background-image: url(Assets/Rovast.png); }
-.tera { background-image: url(Assets/Terastor.png); }
-.til { background-image: url(Assets/Tilyar.png); }
+.avatar {
+    margin-top: 20px;
+    height: 330px;
+    border-radius: 6px;
+    max-width: 290px;
+}
+
+.dirtOverlay {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
 
 .characterName {
+    position: sticky;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
 .description {
+    font-weight: 600;
     font-size: 20px;
 }
 
 .description-overlay {
-    height: 100%;
+    /* position: absolute; */
+    /* background-color: #141414ce; */
+    /* height: 0;
+    opacity: 0; */
+    /* bottom: 0; */
+    /* left: 0; */
+    /* height: 100%;
     width: 100%;
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 14px;
-    bottom: 0;
-    left: 0;
     font-size: 24px;
     line-height: 30px;
-    background-color: #141414ce;
-    height: 0;
-    opacity: 0;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
-    border-radius: 6px;
+    border-radius: 6px; */
+    display: none;
 }
 
 .characterCard:hover > .description-overlay {
@@ -108,6 +137,18 @@ body {
     height: 100%;
     opacity: 1;
 }
+
+/* ! Adders */
+
+.vOne { background-image: url(Assets/Dirt1.png); background-position: top bottom; opacity: 0.4; }
+.vTwo { background-image: url(Assets/Dirt2.png); background-position: center; opacity: 0.2; }
+.vThree { background-image: url(Assets/Dirt3.png); background-position: center; opacity: 0.4; }
+.vald { background-image: url(Assets/Astrandir.png); }
+.kiar { background-image: url(Assets/Kiarst.png); }
+.ort { background-image: url(Assets/Ortanna.png); }
+.rov { background-image: url(Assets/Rovast.png); }
+.tera { background-image: url(Assets/Terastor.png); }
+.til { background-image: url(Assets/Tilyar.png); }
 
 /* ! Game */
 
@@ -124,6 +165,7 @@ body {
 
 .play {
     cursor: auto;
+    height: 700px;
     width: 100%;
 }
 
@@ -134,9 +176,52 @@ body {
 }
 
 .game-on {
-    width: 36%!important;
+    width: 40%;
 }
 
 .race {
     font-size: 26px;
+}
+
+.actions {
+    text-align: center;
+}
+
+.reload {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.btn-wrapper {
+    margin: 0 auto;
+    max-width: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.pilar {
+    border: 2px solid #d88253;
+    width: 10px;
+    background-color: #b52d30;
+    background: linear-gradient(0.4turn, #b92d2b, #b92d2b, #d0797b, #b92d2b, #b92d2b);
+}
+
+.btn {
+    margin-right: 2px;
+    margin-left: 2px;
+    width: 100%;
+    color: #ffa592;
+    border: 2px solid #ca4748;
+    box-shadow: inset 2px 2px 0px #752424;
+    background-color: #962c2d;
+    font-size: 20px;
+    text-align: center;
+    padding: 2px 24px;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn:active {
+    box-shadow: inset 6px 6px 8px #752424;
 }

@@ -1,10 +1,10 @@
 class Enemy {
     constructor(type, race, health, magic, strength, agility, speed, scenario, description) {
-        this.race = race;
         this.type = type;
+        this.race = race;
         this.health = health;
-        this.strength = strength;
         this.magic = magic;
+        this.strength = strength;
         this.agility = agility;
         this.speed = speed;
         this.scenario = scenario;

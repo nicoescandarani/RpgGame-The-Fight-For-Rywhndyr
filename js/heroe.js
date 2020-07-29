@@ -63,16 +63,15 @@ let HeroMoves = {
         const enemyHealth = document.querySelector('.enemy-health');
 
         // ! Start attack.
-
         if (heroSpeed >= enemySpeed) {
             let heroAttackValues = heroAttack();
             let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-            enemy.health = Math.trunc(enemy.health - totalDamage);
+            enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly.
             alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
 
             if (enemy.health <= 0 && hero.health > enemy.health) {
                 // ! Winner
-                actions.innerHTML = '<p class="find">You win!!</p>';
+                actions.innerHTML = '<p class="find">You win!!</p><p class="reload" onclick="GameManager.setFight()">Next enemy!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
                 enemyHealth.innerHTML = 'Health: 0';
                 heroHealth.innerHTML = 'Health: ' + hero.health;
                     
@@ -81,17 +80,17 @@ let HeroMoves = {
                 HeroMoves.storePoint(pointsCounter);
             } else {
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
-                // ! The enemy attacks.
 
+                // ! The enemy attacks.
                 let enemyAttackValues = enemyAttack();
                 
                 let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-                hero.health = Math.trunc(hero.health - totalDamage);
+                hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly.
                 alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
 
                 if (hero.health <= 0 && enemy.health > hero.health) {
                     // ! Winner
-                    actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p>';
+                    actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                     heroHealth.innerHTML = 'Health: 0';
                     
@@ -107,12 +106,12 @@ let HeroMoves = {
         } else if (enemySpeed > heroSpeed) {
             let enemyAttackValues = enemyAttack();
             let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-            hero.health = hero.health - totalDamage;
+            hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly.
             alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
 
             if (hero.health <= 0 && enemy.health > hero.health) {
                 // ! Winner
-                actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p>';
+                actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
                 heroHealth.innerHTML = 'Health: 0';
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
                 
@@ -123,12 +122,12 @@ let HeroMoves = {
                 let heroAttackValues = heroAttack();
                 
                 let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-                enemy.health = enemy.health - totalDamage;
+                enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly.
                 alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
 
                 if (enemy.health <= 0 && hero.health > enemy.health) {
                     // ! Winner
-                    actions.innerHTML = '<p class="find">You win!!</p>';
+                    actions.innerHTML = '<p class="find">You win!!</p><p class="reload" onclick="GameManager.setFight()">Next enemy!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
                     heroHealth.innerHTML = 'Health: ' + hero.health;
                     enemyHealth.innerHTML = 'Health: 0';
 

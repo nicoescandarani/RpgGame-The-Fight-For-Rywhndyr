@@ -11,6 +11,8 @@
 </head>
 <body>
 
+    <div class="ashes-overlay"></div>
+
     <div class="container">
 
         <div class="interface">
@@ -26,8 +28,8 @@
 
                 <div class="cards-wrapper">
 
-                    <div class="characterCard" onclick="GameManager.startGame('Valdimir')">
-                        <h2 class="characterName">Valdimir</h2>
+                    <div class="characterCard" onclick="GameManager.startGame('Astrandir', 'Wizard')">
+                        <h2 class="characterName">Astrandir</h2>
                         <div class="hero-img vald"></div>
                         <p class="description race">Wizard</p>
                         <div class="description-overlay">
@@ -35,7 +37,7 @@
                         </div>
                     </div>
 
-                    <div class="characterCard" onclick="GameManager.startGame('Kiarst')">
+                    <div class="characterCard" onclick="GameManager.startGame('Kiarst', 'Elf')">
                         <h2 class="characterName">Kiarst</h2>
                         <div class="hero-img kiar"></div>
                         <p class="description race">Elf</p>
@@ -43,8 +45,8 @@
                             <p class="hero-description-overlay">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum tenetur sit sed odio voluptates aut officia eligendi vel voluptatem. Doloremque.</p>
                         </div>
                     </div>
-
-                    <div class="characterCard" onclick="GameManager.startGame('Ortanna')">
+                    
+                    <div class="characterCard" onclick="GameManager.startGame('Ortanna', 'Human')">
                         <h2 class="characterName">Ortanna</h2>
                         <div class="hero-img ort"></div>
                         <p class="description race">Human</p>
@@ -53,7 +55,7 @@
                         </div>
                     </div>
 
-                    <div class="characterCard" onclick="GameManager.startGame('Rovast')">
+                    <div class="characterCard" onclick="GameManager.startGame('Rovast', 'Orc')">
                         <h2 class="characterName">Rovast</h2>
                         <div class="hero-img rov"></div>
                         <p class="description race">Orc</p>
@@ -62,7 +64,7 @@
                         </div>
                     </div>
 
-                    <div class="characterCard" onclick="GameManager.startGame('Terastor')">
+                    <div class="characterCard" onclick="GameManager.startGame('Terastor', 'Human')">
                         <h2 class="characterName">Terastor</h2>
                         <div class="hero-img tera"></div>
                         <p class="description race">Human</p>
@@ -71,7 +73,7 @@
                         </div>
                     </div>
 
-                    <div class="characterCard" onclick="GameManager.startGame('Tilyar')">
+                    <div class="characterCard" onclick="GameManager.startGame('Tilyar', 'Skin Shifter')">
                         <h2 class="characterName">Tilyar</h2>
                         <div class="hero-img til"></div>
                         <p class="description race">Skin Shifter</p>
@@ -83,7 +85,7 @@
                 </div>
 
             </div>
-
+            
         </div>
 
         <div class="actions"></div>
