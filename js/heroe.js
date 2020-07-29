@@ -16,7 +16,7 @@ let HeroMoves = {
         // ! Fix this. ---------------------------------------------->
         let pointsCounter = localStorage.getItem('points');
         console.log(pointsCounter);
-
+        
         // ! Who attacks first.
         const actions = document.querySelector('.actions');
         let heroSpeed = hero.speed;

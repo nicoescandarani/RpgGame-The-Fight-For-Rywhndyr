@@ -5,17 +5,17 @@
 
 let GameManager = {
     
-    startGame: function(type) {
+    startGame: function(type, race) {
         const gameContainer = document.querySelector('.container');
         const gameInterface = document.querySelector('.interface');
         gameContainer.style.display = 'flex';
         gameInterface.classList.add('game-on');
         
-        this.restetPlayer(type);
+        this.resetPlayer(type, race);
         this.preFight();
     },
 
-    restetPlayer: function(type, race) {
+    resetPlayer: function(type, race) {
         
         switch (type) {
             case 'Astrandir':
@@ -41,7 +41,7 @@ let GameManager = {
                 hero = new Hero(type, race, 90, 20, 100, 180, 100);
                 break;
         }
-
+        
         let interface = document.querySelector('.interface');
         
         // ! Generate Hero card.
@@ -56,10 +56,6 @@ let GameManager = {
         
         // ! Actions.
         actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">Find an enemy!</button><div class="pilar"></div></div>';
-
-        
-
-        
         
     },
 
