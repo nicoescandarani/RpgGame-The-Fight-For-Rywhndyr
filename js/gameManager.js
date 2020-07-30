@@ -2,7 +2,6 @@
 // TODO ----> Count points.
 // TODO ----> Parse all properties.
 
-
 let GameManager = {
     
     startGame: function(type, race) {

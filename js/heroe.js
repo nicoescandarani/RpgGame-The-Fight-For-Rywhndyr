@@ -13,7 +13,12 @@ class Hero {
 let HeroMoves = {
 
     calcAttack: function() {
-        // ! Fix this. ---------------------------------------------->
+
+        // ! Get health.
+        const heroHealth = document.querySelector('.hero-health');
+        const enemyHealth = document.querySelector('.enemy-health');
+
+        // TODO Fix this. ---------------------------------------------->
         let pointsCounter = localStorage.getItem('points');
         console.log(pointsCounter);
         
@@ -22,6 +27,7 @@ let HeroMoves = {
         let heroSpeed = hero.speed;
         let enemySpeed = enemy.speed;
 
+        // TODO Modulrarize this function so that I can use it with both the Hero and the Enemy.
         let heroAttack = function() {
             let calcBaseDamage;
     
@@ -40,6 +46,7 @@ let HeroMoves = {
             return attackValues;
         }
 
+        // TODO Modulrarize this function so that I can use it with both the Hero and the Enemy.
         let enemyAttack = function() {
             let calcBaseDamage;
     
@@ -58,15 +65,14 @@ let HeroMoves = {
             return attackValues;
         }
 
-        // ! Get health.
-        const heroHealth = document.querySelector('.hero-health');
-        const enemyHealth = document.querySelector('.enemy-health');
+        // TODO Maybe separate the attacks  from the defenses with a button.
+        // TODO Also show the attack and defense stats somewhere.
 
         // ! Start attack.
         if (heroSpeed >= enemySpeed) {
             let heroAttackValues = heroAttack();
             let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-            enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly.
+            enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
             alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
 
             if (enemy.health <= 0 && hero.health > enemy.health) {
@@ -85,7 +91,7 @@ let HeroMoves = {
                 let enemyAttackValues = enemyAttack();
                 
                 let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-                hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly.
+                hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
                 alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
 
                 if (hero.health <= 0 && enemy.health > hero.health) {
@@ -106,7 +112,7 @@ let HeroMoves = {
         } else if (enemySpeed > heroSpeed) {
             let enemyAttackValues = enemyAttack();
             let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-            hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly.
+            hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
             alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
 
             if (hero.health <= 0 && enemy.health > hero.health) {
@@ -122,7 +128,7 @@ let HeroMoves = {
                 let heroAttackValues = heroAttack();
                 
                 let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-                enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly.
+                enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
                 alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
 
                 if (enemy.health <= 0 && hero.health > enemy.health) {
