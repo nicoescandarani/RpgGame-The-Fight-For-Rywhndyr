@@ -62,7 +62,6 @@ body {
     border-radius: 6px;
     padding-top: 70px;
     padding: 20px;
-    /* background-color: #241711; */
     text-align: center;
     cursor: pointer;
     height: 550px;
@@ -71,10 +70,10 @@ body {
     background-image: url(Assets/RpgParchment.png);
     background-size: cover;
     background-position: center;
-    /* overflow: auto; */
 }
 
 .hero-img {
+    position: relative;
     background-size: cover;
     height: 340px;
     max-width: 290px;
@@ -83,11 +82,41 @@ body {
     margin-bottom: 10px;
 }
 
-.avatar {
-    margin-top: 20px;
+.img-wrapper {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 34px;
+    margin-bottom: 10px;
     height: 330px;
+    max-width: 214px;
+
+}
+
+.characterStatsOnGameHero {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+.characterStatsOnGameEnemy {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+}
+
+.avatar {
     border-radius: 6px;
-    max-width: 290px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .dirtOverlay {
@@ -187,6 +216,12 @@ body {
     text-align: center;
 }
 
+.actionsResp {
+    transform: translateX(-50%);
+    margin-left: 50%;
+    max-width: 200px;
+}
+
 .reload {
     font-size: 24px;
     cursor: pointer;
@@ -224,4 +259,229 @@ body {
 
 .btn:active {
     box-shadow: inset 6px 6px 8px #752424;
+}
+
+.slashEnemy {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.slashHero {
+    transform: rotate(-90deg);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+@media (max-width: 1440px) {
+
+    .container {
+        max-width: 1200px;
+    }
+
+    .game-on {
+        width: 50%;
+    }
+    
+    .options {
+        width: 40%;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .hero-img {
+        max-width: 240px;
+    }
+
+}
+
+@media (max-width: 1162px) {
+
+    .play {
+        padding: 40px;
+        width: 100%;
+        background-image: url(Assets/ParchmentResp.png);
+    }
+
+    .game-on {
+        width: 45%;
+    }
+
+    .options {
+        width: 45%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+}
+
+@media (max-width: 924px) {
+
+    .main {
+        padding: 0;
+    }
+    
+    .cards-wrapper {
+        justify-content: center;
+    }
+    
+    .options {
+        width: 420px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .hero-img {
+        height: 330px;
+        max-width: 240px;
+    }
+
+}
+
+@media (max-width: 924px) {
+    
+    .options {
+        height: auto;
+        width: 80%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(Assets/ParchmentResp.png);
+    }
+
+    .hero-img {
+        height: 330px;
+        max-width: 240px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    body {
+        background-position: 34%;
+    }
+    
+    .options {
+        width: 100%;
+    }
+
+    .actions {
+        margin-bottom: 40px;
+    }
+
+    .btn-wrapper {
+        max-width: 300px;
+    }
+
+    .btn {
+        padding: 10px 24px;
+    }
+
+    .container {
+        display: block!important;
+    }
+
+    .game-on {
+        width: 100%;
+    }
+
+    .play {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: 100%;
+    }
+
+    .characterName{
+        margin-bottom: 10px;
+    }
+
+    .img-wrapper {
+        margin-top: 0;
+        height: auto;
+        width: 150px;
+    }
+
+    .cardLeft {
+        margin-right: 40px;
+    }
+
+}
+@media (max-width: 480px) {
+
+    .play {
+        display: block;
+        padding: 40px 0;
+    }
+
+    .cardRight {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .cardLeft {
+        margin-right: 0;
+    }
+
+    .stats {
+        font-size: 18px;
+        padding: 1px;
+        border-right: 1px solid #ffffff;
+    }
+
+    .statsLast {
+        border-right: none;
+    }
+
+}
+
+@media (max-width: 400px) {
+    
+    .hero-img {
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 150px;
+        max-width: 190px;
+    }
+
+}
+
+@media (max-width: 390px) {
+
+    .play {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .characterName {
+        font-size: 20px;
+    }
+
+    .img-wrapper {
+        width: 90px;
+    }
+
+    .cardRight {
+        display: block;
+    }
+
+    .cardLeft {
+        margin-right: 20px;
+    }
+
+    .stats {
+        border: none;
+    }
+
 }

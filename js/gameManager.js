@@ -1,6 +1,5 @@
 // TODO ----> Hability to search another enemy.
 // TODO ----> Count points.
-// TODO ----> Parse all properties.
 
 let GameManager = {
     
@@ -15,7 +14,7 @@ let GameManager = {
     },
 
     resetPlayer: function(type, race) {
-        
+
         switch (type) {
             case 'Astrandir':
                 hero = new Hero(type, race, 100, 200, 100, 50, 40);
@@ -44,17 +43,28 @@ let GameManager = {
         let interface = document.querySelector('.interface');
         
         // ! Generate Hero card.
-        interface.innerHTML = '<div class= "characterCard play"> <h3 class="characterName">' + hero.type + '</h3> <div class="img-wrapper"><img src= "../Assets/' + type + '.png" alt="' + type + '"class="avatar"> </div><div> <p class="stats hero-health">Health: ' + hero.health + '</p><p class="stats">Magic: ' + hero.magic + '</p><p class="stats">Strength: ' + hero.strength + '</p><p class="stats">Agility: ' + hero.agility + '</p><p class="stats">Speed: ' + hero.speed + '</p> </div> </div>';
+        interface.innerHTML = '<div class= "characterCard play"> <div class="cardLeft"><h3 class="characterName">' + hero.type + '</h3> <div class="img-wrapper"><img src="Assets/Slash5.gif" alt="" class="slashHero"><p class="characterStatsOnGameHero"></p><img src= "../Assets/' + type + '.png" alt="' + type + '"class="avatar"> </div></div><div class="cardRight"> <p class="stats hero-health">Health: ' + hero.health + '</p><p class="stats">Magic: ' + hero.magic + '</p><p class="stats">Strength: ' + hero.strength + '</p><p class="stats">Agility: ' + hero.agility + '</p><p class="stats statsLast">Speed: ' + hero.speed + '</p> </div> </div>';
         
     },
 
     preFight: function() {
+        let width = window.innerWidth;
         
         const actions = document.querySelector('.actions');
+        const actionsResp = document.querySelector('.actionsResp');
         const arena = document.querySelector('.arena');
         
         // ! Actions.
-        actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">Find an enemy!</button><div class="pilar"></div></div>';
+
+        if (width < 1162 && width > 768) {
+            
+            actionsResp.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">Find an enemy!</button><div class="pilar"></div></div>';
+
+        } else {
+
+            actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">Find an enemy!</button><div class="pilar"></div></div>';
+
+        }
         
     },
 
@@ -75,6 +85,7 @@ let GameManager = {
         const enemy1 = new Enemy('Wndorf', GOBLIN, 80, 10, 120, 80, 100, 'City', Wndorf_DESCRIPTION);
         const enemy2 = new Enemy('Dulkar', HUMAN, 60, 0, 200, 40, 100, 'Village', Dulkar_DESCRIPTION);
         const enemy3 = new Enemy('Osgrwd', SKIN_SHIFTER, 160, 70, 150, 80, 150, 'CityRuins', Osgrwd_DESCRIPTION);
+        let width = window.innerWidth;
         
         enemies.push(enemy0, enemy1, enemy2, enemy3);
         
@@ -84,6 +95,7 @@ let GameManager = {
         enemyInterface.classList.add('game-on');
         
         const actions = document.querySelector('.actions');
+        const actionsResp = document.querySelector('.actionsResp');
         const arena = document.querySelector('.arena');
         const enemySection = document.querySelector('.enemy');
         
@@ -104,12 +116,21 @@ let GameManager = {
                 break;
         }
 
-        actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
+        // ! Actions.
 
-        
+        if (width < 1162 && width > 768) {
 
+            actionsResp.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
+            
+
+        } else {
+
+            actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
+            
+
+        }
         // ! Generate Enemy card.
-        enemySection.innerHTML = '<div class="characterCard play"><h3 class="characterName">' + enemy.type + '</h3> <div class="img-wrapper"><img src= "../Assets/' + enemy.type + '.png" alt="' + enemy.type + '"class="avatar"> </div><div>  <p class="stats enemy-health">Health: ' + enemy.health + '</p><p class="stats">Magic: ' + enemy.magic + '</p><p class="stats">Strength: ' + enemy.strength + '</p><p class="stats">Agility: ' + enemy.agility + '</p><p class="stats">Speed: ' + enemy.speed + '</p> </div> </div>';
+        enemySection.innerHTML = '<div class= "characterCard play"> <div class="cardLeft"><h3 class="characterName">' + enemy.type + '</h3> <div class="img-wrapper"><img src="Assets/Slash5.gif" alt="" class="slashEnemy"><p class="characterStatsOnGameEnemy"></p><img src= "../Assets/' + enemy.type + '.png" alt="' + enemy.type + '"class="avatar"> </div></div><div class="cardRight"> <p class="stats enemy-health">Health: ' + enemy.health + '</p><p class="stats">Magic: ' + enemy.magic + '</p><p class="stats">Strength: ' + enemy.strength + '</p><p class="stats">Agility: ' + enemy.agility + '</p><p class="stats statsLast">Speed: ' + enemy.speed + '</p> </div> </div>';
 
         document.body.style.backgroundImage = 'URL("../Assets/' + enemy.scenario + '.png")'; // Change the scenario.
         document.querySelector('.ashes-overlay').style.display = 'none'; // Hide the snow/ashes.
@@ -119,4 +140,5 @@ let GameManager = {
     reloadPage: function() {
         window.location.reload();
     }
+    
 }

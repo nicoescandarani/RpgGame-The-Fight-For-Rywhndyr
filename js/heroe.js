@@ -15,6 +15,11 @@ let HeroMoves = {
     calcAttack: function() {
 
         // ! Get health.
+        const SHOW_TIME = 1500;
+        const slashEnemy = document.querySelector('.slashEnemy');
+        const slashHero = document.querySelector('.slashHero');
+        const heroStats = document.querySelector('.characterStatsOnGameHero');
+        const enemyStats = document.querySelector('.characterStatsOnGameEnemy');
         const heroHealth = document.querySelector('.hero-health');
         const enemyHealth = document.querySelector('.enemy-health');
 
@@ -45,8 +50,7 @@ let HeroMoves = {
             let attackValues = [calcOutputDamage, numberOfHits];
             return attackValues;
         }
-
-        // TODO Modulrarize this function so that I can use it with both the Hero and the Enemy.
+        
         let enemyAttack = function() {
             let calcBaseDamage;
     
@@ -72,8 +76,22 @@ let HeroMoves = {
         if (heroSpeed >= enemySpeed) {
             let heroAttackValues = heroAttack();
             let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-            enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
-            alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
+            enemy.health = parseInt(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
+
+            // ! Show health lost.
+            enemyStats.style.backgroundColor = 'black';
+            enemyStats.style.opacity = '0.5';
+            enemyStats.innerHTML = '-' + parseInt(totalDamage);
+            slashEnemy.style.display = 'block';
+
+            setTimeout(() => {
+                enemyStats.style.backgroundColor = 'transparent';
+                enemyStats.innerHTML = '';
+            }, SHOW_TIME);
+
+            setTimeout(() => {
+                slashEnemy.style.display = 'none';
+            }, 300);
 
             if (enemy.health <= 0 && hero.health > enemy.health) {
                 // ! Winner
@@ -91,8 +109,22 @@ let HeroMoves = {
                 let enemyAttackValues = enemyAttack();
                 
                 let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-                hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
-                alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
+                hero.health = parseInt(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
+
+                // ! Show health lost.
+                heroStats.style.backgroundColor = 'black';
+                heroStats.style.opacity = '0.5';
+                heroStats.innerHTML = '-' + parseInt(totalDamage);
+                slashHero.style.display = 'block';
+    
+                setTimeout(() => {
+                    heroStats.style.backgroundColor = 'transparent';
+                    heroStats.innerHTML = '';
+                }, SHOW_TIME);
+
+                setTimeout(() => {
+                    slashHero.style.display = 'none';
+                }, 300);
 
                 if (hero.health <= 0 && enemy.health > hero.health) {
                     // ! Winner
@@ -112,8 +144,22 @@ let HeroMoves = {
         } else if (enemySpeed > heroSpeed) {
             let enemyAttackValues = enemyAttack();
             let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-            hero.health = Math.trunc(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
-            alert("Enemy hit " + enemyAttackValues[0] + " damage " + enemyAttackValues[1] + " times.");
+            hero.health = parseInt(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
+
+            // ! Show health lost.
+                heroStats.style.backgroundColor = 'black';
+                heroStats.style.opacity = '0.5';
+                heroStats.innerHTML = '-' + parseInt(totalDamage);
+                slashHero.style.display = 'block';
+    
+                setTimeout(() => {
+                    heroStats.style.backgroundColor = 'transparent';
+                    heroStats.innerHTML = '';
+                }, SHOW_TIME);
+
+                setTimeout(() => {
+                    slashHero.style.display = 'none';
+                }, 300);
 
             if (hero.health <= 0 && enemy.health > hero.health) {
                 // ! Winner
@@ -128,8 +174,22 @@ let HeroMoves = {
                 let heroAttackValues = heroAttack();
                 
                 let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-                enemy.health = Math.trunc(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
-                alert("You hit " + heroAttackValues[0] + " damage " + heroAttackValues[1] + " times.");
+                enemy.health = parseInt(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
+
+                // ! Show health lost.
+                enemyStats.style.backgroundColor = 'black';
+                enemyStats.style.opacity = '0.5';
+                enemyStats.innerHTML = '-' + parseInt(totalDamage);
+                slashEnemy.style.display = 'block';
+
+                setTimeout(() => {
+                    enemyStats.style.backgroundColor = 'transparent';
+                    enemyStats.innerHTML = '';
+                }, SHOW_TIME);
+
+                setTimeout(() => {
+                    slashEnemy.style.display = 'none';
+                }, 300);
 
                 if (enemy.health <= 0 && hero.health > enemy.health) {
                     // ! Winner
