@@ -28,6 +28,19 @@ body {
     z-index: -1;
 }
 
+.currentStory {
+    /* max-height: 220px;
+    overflow: auto; */
+    display: none;
+    background-color: #000000b0;
+    padding: 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 30px;
+    border-radius: 0 0 6px 6px;
+}
+
 .container {
     justify-content: space-between;
     align-items: center;
@@ -228,6 +241,7 @@ body {
 }
 
 .btn-wrapper {
+    margin-bottom: 20px!important;
     margin: 0 auto;
     max-width: none;
     display: flex;
@@ -278,7 +292,20 @@ body {
     display: none;
 }
 
+.message {
+    cursor: auto;
+}
+
 @media (max-width: 1440px) {
+
+    .currentStory {
+        max-height: 200px;
+        overflow: auto;
+        padding: 10px 20px;
+        font-size: 18px;
+        line-height: 22px;
+        max-width: 1200px;
+    }
 
     .container {
         max-width: 1200px;
@@ -301,6 +328,10 @@ body {
 }
 
 @media (max-width: 1162px) {
+
+    .currentStory {
+        height: 150px;
+    }
 
     .play {
         padding: 40px;

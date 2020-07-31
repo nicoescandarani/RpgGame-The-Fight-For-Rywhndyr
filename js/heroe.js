@@ -76,7 +76,7 @@ let HeroMoves = {
         if (heroSpeed >= enemySpeed) {
             let heroAttackValues = heroAttack();
             let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-            enemy.health = parseInt(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
+            enemy.health = parseInt(enemy.health - totalDamage);
 
             // ! Show health lost.
             enemyStats.style.backgroundColor = 'black';
@@ -95,7 +95,7 @@ let HeroMoves = {
 
             if (enemy.health <= 0 && hero.health > enemy.health) {
                 // ! Winner
-                actions.innerHTML = '<p class="find">You win!!</p><p class="reload" onclick="GameManager.setFight()">Next enemy!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
+                actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">New enemy!</button><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
                 enemyHealth.innerHTML = 'Health: 0';
                 heroHealth.innerHTML = 'Health: ' + hero.health;
                     
@@ -109,7 +109,7 @@ let HeroMoves = {
                 let enemyAttackValues = enemyAttack();
                 
                 let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-                hero.health = parseInt(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
+                hero.health = parseInt(hero.health - totalDamage);
 
                 // ! Show health lost.
                 heroStats.style.backgroundColor = 'black';
@@ -128,7 +128,7 @@ let HeroMoves = {
 
                 if (hero.health <= 0 && enemy.health > hero.health) {
                     // ! Winner
-                    actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
+                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">' + enemy.type + ' wins</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                     heroHealth.innerHTML = 'Health: 0';
                     
@@ -144,7 +144,7 @@ let HeroMoves = {
         } else if (enemySpeed > heroSpeed) {
             let enemyAttackValues = enemyAttack();
             let totalDamage = enemyAttackValues[0] * enemyAttackValues[1];
-            hero.health = parseInt(hero.health - totalDamage); // TODO Parse it properly. -------------------------->
+            hero.health = parseInt(hero.health - totalDamage);
 
             // ! Show health lost.
                 heroStats.style.backgroundColor = 'black';
@@ -163,7 +163,7 @@ let HeroMoves = {
 
             if (hero.health <= 0 && enemy.health > hero.health) {
                 // ! Winner
-                actions.innerHTML = '<p class="find">' + enemy.type + ' wins!!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
+                actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">' + enemy.type + ' wins</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
                 heroHealth.innerHTML = 'Health: 0';
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
                 
@@ -174,8 +174,7 @@ let HeroMoves = {
                 let heroAttackValues = heroAttack();
                 
                 let totalDamage = heroAttackValues[0] * heroAttackValues[1];
-                enemy.health = parseInt(enemy.health - totalDamage); // TODO Parse it properly. -------------------------->
-
+                enemy.health = parseInt(enemy.health - totalDamage);
                 // ! Show health lost.
                 enemyStats.style.backgroundColor = 'black';
                 enemyStats.style.opacity = '0.5';
@@ -193,7 +192,7 @@ let HeroMoves = {
 
                 if (enemy.health <= 0 && hero.health > enemy.health) {
                     // ! Winner
-                    actions.innerHTML = '<p class="find">You win!!</p><p class="reload" onclick="GameManager.setFight()">Next enemy!</p><p class="reload" onclick="GameManager.reloadPage()">Play again!</p>';
+                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">New enemy!</button><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
                     heroHealth.innerHTML = 'Health: ' + hero.health;
                     enemyHealth.innerHTML = 'Health: 0';
 
