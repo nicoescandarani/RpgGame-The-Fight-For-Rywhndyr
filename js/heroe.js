@@ -70,7 +70,6 @@ let HeroMoves = {
         }
 
         // TODO Maybe separate the attacks  from the defenses with a button.
-        // TODO Also show the attack and defense stats somewhere.
 
         // ! Start attack.
         if (heroSpeed >= enemySpeed) {

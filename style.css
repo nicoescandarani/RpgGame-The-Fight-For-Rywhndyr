@@ -296,6 +296,8 @@ body {
     cursor: auto;
 }
 
+/* ! Media queries */
+
 @media (max-width: 1440px) {
 
     .currentStory {

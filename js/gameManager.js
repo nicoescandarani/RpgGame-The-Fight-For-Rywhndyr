@@ -104,20 +104,25 @@ let GameManager = {
         
         const chooseEnemy = Math.floor(Math.random() * Math.floor(enemies.length));
         
-        switch (chooseEnemy) {
-            case 0:
-                enemy = enemies[0];
-                break;
-            case 1:
-                enemy = enemies[1];
-                break;
-            case 2:
-                enemy = enemies[2];
-                break;
-            case 3:
-                enemy = enemies[3];
-                break;
-        }
+
+        enemy = enemies[chooseEnemy];
+        
+
+        // ! I'm leaving this just in case.
+        // switch (chooseEnemy) {
+        //     case 0:
+        //         enemy = enemies[0];
+        //         break;
+        //     case 1:
+        //         enemy = enemies[1];
+        //         break;
+        //     case 2:
+        //         enemy = enemies[2];
+        //         break;
+        //     case 3:
+        //         enemy = enemies[3];
+        //         break;
+        // }
 
         // ! Set the scenario.
 
