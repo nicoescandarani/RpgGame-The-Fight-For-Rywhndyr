@@ -1,0 +1,149 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #1d213b;
+    opacity: 0.89;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.menu {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 0%;
+    width: 100%;
+    background-color: #171820;
+    z-index: 2;
+    transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    overflow: hidden;
+}
+
+.menu .ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+    height: 100vh;
+}
+
+.menu .ul .li {
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu .ul .li .hmb-h2 {
+    color: #eee;
+    font-size: 60px;
+}
+
+.menu .ul .li .img-wrapper {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 500px;
+    width: 500px;
+    background-image: url(../assets/24.jpg);
+    background-size: cover;
+    background-position: center left;
+    border-radius: 50%;
+}
+
+.menu .ul .li .a {
+    font-weight: normal;
+    font-size: 50px;
+    text-decoration: none;
+    color: #eee;
+}
+
+.menu .ul .move:hover {
+    transform: translateX(5px);
+}
+
+.hmb-lines {
+    transform: rotate(204deg) translateY(-50%);
+    position: fixed;
+    top: 50%;
+    left: 2%;
+    height: 50px;
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hmb-lines .line {
+    background-color: #eee;
+    height: 3px;
+    border-radius: 10px;
+    width: 100%;
+}   
+
+.hmb-lines .one {
+    width: 70%;
+    align-self: flex-end;
+    transition: all 0.8s cubic-bezier(0.5, 0.09, 0.51, 1.33);
+}
+
+.hmb-lines .two {
+    transition: all 0.85s cubic-bezier(0.5, 0.09, 0.51, 1.33);
+}
+
+.hmb-lines .three {
+    transition: all 0.9s cubic-bezier(0.5, 0.09, 0.51, 1.33);
+}
+
+.overlay-active {
+    width: 100%;
+}
+
+.menu-active {
+    height: 100%;
+}
+
+.menu-delay {
+    transition-delay: 0.4s;
+}
+
+.hmb-lines-active {
+    transform: rotate(360deg);
+}
+
+.hmb-lines-delay {
+    transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.one-active {
+    opacity: 0;
+    width: 100% !important;
+    transform: rotate(360deg);
+}
+
+.two-active {
+    transform: rotate(50deg);
+}
+
+.three-active {
+    transform: rotate(-50deg);
+}
+
+
+@media (max-width: 768px) {
+
+    .hmb-lines {
+        top: 10%;
+        transform: none;
+        height: 20px;
+        width: 30px;
+    }
+
+    .info {
+        height: 30px;
+    }
+
+}

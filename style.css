@@ -29,8 +29,6 @@ body {
 }
 
 .currentStory {
-    /* max-height: 220px;
-    overflow: auto; */
     display: none;
     background-color: #000000b0;
     padding: 20px;
@@ -42,6 +40,7 @@ body {
 }
 
 .container {
+    position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 20px;

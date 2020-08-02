@@ -6,9 +6,13 @@ let GameManager = {
     startGame: function(type, race) {
         const gameContainer = document.querySelector('.container');
         const gameInterface = document.querySelector('.interface');
+        const hmb = document.querySelector('.hmb-lines');
+        const info = document.querySelector('.info-wrapper');
         gameContainer.style.display = 'flex';
         gameInterface.classList.add('game-on');
         
+        hmb.style.display = 'none';
+        info.style.display = 'none';
         this.resetPlayer(type, race);
         this.preFight();
     },

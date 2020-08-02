@@ -4,12 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hmb.css">
+    <link rel="stylesheet" href="info.css">
     <script src="js/gameManager.js"></script>
     <script src="js/heroe.js"></script>
     <script src="js/enemy.js"></script>
     <title>Cards Game</title>
 </head>
 <body>
+
+    <div class="info-wrapper">
+        <div class="info-container">
+            <img src="Assets/info.svg" alt="Info" class="info">
+            <p class="info-tooltip">info</p>
+        </div>
+    </div>
+
+    <div class="info-menu">
+        <div class="info-text-container">
+            <img src="Assets/close.svg" alt="Close" class="close">
+            <div class="info-text">
+                <h2 class="info-title">About the game.</h2>
+                <p class="info-par">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corrupti temporibus  obcaecati in inventore, natus quam iure ipsum beatae debitis?</p>
+                <p class="info-par">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos odio rem sunt?    Ipsam assumenda omnis cum laborum in ea officiis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <nav class="nav">
+            <ul class="ul">
+                <li class="li">
+                    <h2 class="hmb-h2">Developed by <a href="https://nescanda.com/" target="_blank">Nicolas Escandarani</a></h2>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="hmb-lines">
+        <div class="line one"></div>
+        <div class="line two"></div>
+        <div class="line three"></div>
+    </div>
+
+<!-- ! Main Layout -->
 
     <div class="ashes-overlay"></div>
 
@@ -98,8 +138,9 @@
 
     
     <div class="actionsResp"></div>
-
-    <script src="js/interface.js"></script>
     
+    <!-- ! Hmb -->
+    <script src="js/app.js"></script>
+
 </body>
 </html>
