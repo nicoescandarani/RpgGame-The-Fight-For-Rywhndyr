@@ -13,6 +13,16 @@ const infoMenu = document.querySelector('.info-menu');
 
 // ! Helper Functions.
 
+function infoClose () {
+    info.classList.remove('info-icon-active');
+    infoMenu.classList.remove('info-menu-active');
+}
+
+function infoIconOpen () {
+    info.classList.add('info-icon-active');
+    infoMenu.classList.add('info-menu-active');
+}
+
 function showTooltip () {
     infoToolTip.classList.add('info-tooltip-active');
 }
@@ -66,11 +76,9 @@ info.addEventListener('mouseout', () => {
 });
 
 info.addEventListener('click', () => {
-    info.classList.add('info-icon-active');
-    infoMenu.classList.add('info-menu-active');
+    infoIconOpen();
 });
 
 close.addEventListener('click', () => {
-    info.classList.remove('info-icon-active');
-    infoMenu.classList.remove('info-menu-active');
+    infoClose();
 });

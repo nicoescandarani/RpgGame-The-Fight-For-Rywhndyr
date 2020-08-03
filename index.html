@@ -13,6 +13,16 @@
 </head>
 <body>
 
+<!-- ! Reset Local Storage. -->
+
+    <script>
+        localStorage.setItem('enemyWin', '');
+        localStorage.setItem('countEnemies', '');
+        console.log(localStorage.getItem('enemyWin'));
+    </script>
+
+<!-- ! Generate Tools. -->
+
     <div class="info-wrapper">
         <div class="info-container">
             <img src="Assets/info.svg" alt="Info" class="info">
@@ -49,7 +59,7 @@
         <div class="line three"></div>
     </div>
 
-<!-- ! Main Layout -->
+<!-- ! Main Layout. -->
 
     <div class="ashes-overlay"></div>
 
@@ -133,7 +143,7 @@
         <div class="actions"></div>
 
         <div class="enemy"></div>
-
+        
     </div>
 
     

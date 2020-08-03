@@ -1,4 +1,3 @@
-// TODO ----> Hability to search another enemy.
 // TODO ----> Count points.
 
 let GameManager = {
@@ -21,7 +20,7 @@ let GameManager = {
 
         switch (type) {
             case 'Astrandir':
-                hero = new Hero(type, race, 100, 200, 100, 50, 40);
+                hero = new Hero(type, race, 1000, 200, 1000, 50, 40);
                 break;
             case 'Kiarst':
                 hero = new Hero(type, race, 150, 150, 200, 80, 150);
@@ -81,10 +80,6 @@ let GameManager = {
         const ORC = 'Orc';
         const SKIN_SHIFTER = 'Skin Shifter';
         const GOBLIN = 'Goblin';
-        const Vulur_DESCRIPTION = 'Vulur description.';
-        const Wndorf_DESCRIPTION = 'Wndorf description.';
-        const Dulkar_DESCRIPTION = 'Dulkar description.';
-        const Osgrwd_DESCRIPTION = 'Osgrwd description.';
         const VULUR_STORY = 'You encountered Vulur the Orc. He was born as the king of the misty forest, land of true giants. His brother double crossed him to get the throne, though he defended himself and lost his sight. With his incredible hearing he attacked a murdered his brother and his hole kingdom with him. Now he lives there, alone, bind and with eternal rage and sadness.';
         const WNDORF_STORY = 'You encountered Wndorf the Goblin. Son of Vlundvorst the smith. Only child, his mother died in labor and his father threw him away with only minutes of life. His strength let him survirve, but at what cost? Having no-one and nothing, hi survived aeting fish in a river. When he was 5 years old he joined the City army. Years later, at the age of only 15 he became the greatest general the the city ever saw. If you desire to conquer all of the kingdoms you´ll have to defeat him.';
         const DULKAR_STORY = 'You encountered Dulkar. A human drowned in corruption an politics. By himself, he is not strong at all, but with his connections he can buy out any mercenary in all the lands. Hi is a misterious man, born and raised as a lord of Scrutastyr villages. His power drove him crazy and started executing every one that didn´t like him. Now he is known as the tirant of the villages. Kill him and of the Scrutastyr lands will be yours.';
@@ -100,56 +95,65 @@ let GameManager = {
         const arena = document.querySelector('.arena');
         const enemySection = document.querySelector('.enemy');
         const currentStory = document.querySelector('.currentStory');
+        let interface = document.querySelector('.interface');
         let width = window.innerWidth;
         
         enemies.push(enemy0, enemy1, enemy2, enemy3);
         
         enemyInterface.classList.add('game-on');
+
+        enemy = null;
         
-        const chooseEnemy = Math.floor(Math.random() * Math.floor(enemies.length));
-        
+        if (localStorage.getItem('countEnemies').length == enemies.length) {
+            console.log("Gané!!");
+            console.log(localStorage.getItem('enemyWin'));
+            console.log(localStorage.getItem('countEnemies'));
 
-        enemy = enemies[chooseEnemy];
-        
-
-        // ! I'm leaving this just in case.
-        // switch (chooseEnemy) {
-        //     case 0:
-        //         enemy = enemies[0];
-        //         break;
-        //     case 1:
-        //         enemy = enemies[1];
-        //         break;
-        //     case 2:
-        //         enemy = enemies[2];
-        //         break;
-        //     case 3:
-        //         enemy = enemies[3];
-        //         break;
-        // }
-
-        // ! Set the scenario.
-
-        currentStory.style.display = 'block';
-        currentStory.innerHTML = enemy.description;
-        document.body.style.backgroundImage = 'URL("../Assets/' + enemy.scenario + '.png")'; // Change the scenario.
-        document.querySelector('.ashes-overlay').style.display = 'none'; // Hide the snow/ashes.
-
-        // ! Actions.
-
-        if (width < 1162 && width > 768) {
-
-            actionsResp.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
+            actions.innerHTML = '';
+            enemySection.innerHTML = '';
+            currentStory.style.display = 'none';
             
-
+            document.body.style.backgroundImage = 'URL("../Assets/Castle1.jpg")';
+        
+            // ! Generate Hero card.
+            interface.innerHTML = '<div class="winner-wrapper"><div class="btn-wrapper msg winner-message"><div class="pilar"></div><p class="btn message success">Congralutions ' + hero.type + ', the kingdom is yours!</p><div class="pilar"></div></div><img src="Assets/' + hero.type + '.png" alt="' + hero.type + '" class="hero-img-success"><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn btn-success">Play again!</button><div class="pilar"></div></div></div>';
         } else {
-
-            actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
-            
+        
+            while (enemy == null) {
+    
+                let chooseEnemy = Math.floor(Math.random() * Math.floor(enemies.length));
+                
+                if (!localStorage.getItem('enemyWin').includes(enemies[chooseEnemy].type, 0)) {
+                    
+                    enemy = enemies[chooseEnemy];
+        
+                }
+            }
+        
+            // ! Set the scenario.
+    
+            currentStory.style.display = 'block';
+            currentStory.innerHTML = enemy.description;
+            document.body.style.backgroundImage = 'URL("../Assets/' + enemy.scenario + '.png")'; // Change the scenario.
+            document.querySelector('.ashes-overlay').style.display = 'none'; // Hide the snow/ashes.
+    
+            // ! Actions.
+    
+            if (width < 1162 && width > 768) {
+    
+                actionsResp.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
+                
+    
+            } else {
+    
+                actions.innerHTML = '<div class="btn-wrapper"><div class="pilar"></div><button onClick="HeroMoves.calcAttack()" class="btn">Attack!</button><div class="pilar"></div></div>';
+                
+    
+            }
+            // ! Generate Enemy card.
+            enemySection.innerHTML = '<div class= "characterCard play"> <div class="cardLeft"><h3 class="characterName">' + enemy.type + '</h3> <div class="img-wrapper"><img src="Assets/Slash5.gif" alt="" class="slashEnemy"><p class="characterStatsOnGameEnemy"></p><img src= "../Assets/' + enemy.type + '.png" alt="' + enemy.type + '"class="avatar"> </div></div><div class="cardRight"> <p class="stats enemy-health">Health: ' + enemy.health + '</p><p class="stats">Magic: ' + enemy.magic + '</p><p class="stats">Strength: ' + enemy.strength + '</p><p class="stats">Agility: ' + enemy.agility + '</p><p class="stats statsLast">Speed: ' + enemy.speed + '</p> </div> </div>';
 
         }
-        // ! Generate Enemy card.
-        enemySection.innerHTML = '<div class= "characterCard play"> <div class="cardLeft"><h3 class="characterName">' + enemy.type + '</h3> <div class="img-wrapper"><img src="Assets/Slash5.gif" alt="" class="slashEnemy"><p class="characterStatsOnGameEnemy"></p><img src= "../Assets/' + enemy.type + '.png" alt="' + enemy.type + '"class="avatar"> </div></div><div class="cardRight"> <p class="stats enemy-health">Health: ' + enemy.health + '</p><p class="stats">Magic: ' + enemy.magic + '</p><p class="stats">Strength: ' + enemy.strength + '</p><p class="stats">Agility: ' + enemy.agility + '</p><p class="stats statsLast">Speed: ' + enemy.speed + '</p> </div> </div>';
 
     },
 

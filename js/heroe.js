@@ -14,7 +14,10 @@ let HeroMoves = {
 
     calcAttack: function() {
 
+        console.log(localStorage.getItem('countEnemies'));
+
         // ! Get health.
+        const ENEMIES_COUNT = 4;
         const SHOW_TIME = 1500;
         const slashEnemy = document.querySelector('.slashEnemy');
         const slashHero = document.querySelector('.slashHero');
@@ -22,17 +25,12 @@ let HeroMoves = {
         const enemyStats = document.querySelector('.characterStatsOnGameEnemy');
         const heroHealth = document.querySelector('.hero-health');
         const enemyHealth = document.querySelector('.enemy-health');
-
-        // TODO Fix this. ---------------------------------------------->
-        let pointsCounter = localStorage.getItem('points');
-        console.log(pointsCounter);
         
         // ! Who attacks first.
         const actions = document.querySelector('.actions');
         let heroSpeed = hero.speed;
         let enemySpeed = enemy.speed;
-
-        // TODO Modulrarize this function so that I can use it with both the Hero and the Enemy.
+        
         let heroAttack = function() {
             let calcBaseDamage;
     
@@ -68,9 +66,7 @@ let HeroMoves = {
             let attackValues = [calcOutputDamage, numberOfHits];
             return attackValues;
         }
-
-        // TODO Maybe separate the attacks  from the defenses with a button.
-
+        
         // ! Start attack.
         if (heroSpeed >= enemySpeed) {
             let heroAttackValues = heroAttack();
@@ -94,13 +90,34 @@ let HeroMoves = {
 
             if (enemy.health <= 0 && hero.health > enemy.health) {
                 // ! Winner
-                actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">New enemy!</button><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
-                enemyHealth.innerHTML = 'Health: 0';
-                heroHealth.innerHTML = 'Health: ' + hero.health;
+
+                if (localStorage.getItem('countEnemies').length == ENEMIES_COUNT - 1) {
                     
-                pointsCounter++;
-                console.log(pointsCounter);
-                HeroMoves.storePoint(pointsCounter);
+                    // ! Save in Local Storage.
+                    localStorage.setItem('enemyWin', localStorage.getItem('enemyWin') + '/' + enemy.type);
+                    localStorage.setItem('countEnemies', localStorage.getItem('countEnemies') + 'x');
+                    console.log(localStorage.getItem('enemyWin'));
+                    console.log(localStorage.getItem('countEnemies'));
+                    
+                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">Claim kingdom!</button><div class="pilar"></div></div>';
+                    enemyHealth.innerHTML = 'Health: 0';
+                    heroHealth.innerHTML = 'Health: ' + hero.health;
+
+
+                } else {
+                    
+                    // ! Save in Local Storage.
+                    localStorage.setItem('enemyWin', localStorage.getItem('enemyWin') + '/' + enemy.type);
+                    localStorage.setItem('countEnemies', localStorage.getItem('countEnemies') + 'x');
+                    console.log(localStorage.getItem('enemyWin'));
+                    console.log(localStorage.getItem('countEnemies'));
+                    
+                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">New enemy!</button><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
+                    enemyHealth.innerHTML = 'Health: 0';
+                    heroHealth.innerHTML = 'Health: ' + hero.health;
+                    
+                }
+                
             } else {
                 enemyHealth.innerHTML = 'Health: ' + enemy.health;
 
@@ -131,8 +148,6 @@ let HeroMoves = {
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                     heroHealth.innerHTML = 'Health: 0';
                     
-                    pointsCounter++;
-                    localStorage.setItem('points', pointsCounter);
 
                 } else {
                     heroHealth.innerHTML = 'Health: ' + hero.health;
@@ -191,13 +206,34 @@ let HeroMoves = {
 
                 if (enemy.health <= 0 && hero.health > enemy.health) {
                     // ! Winner
-                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">New enemy!</button><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
-                    heroHealth.innerHTML = 'Health: ' + hero.health;
+
+                if (localStorage.getItem('countEnemies').length == ENEMIES_COUNT - 1) {
+                    
+                    // ! Save in Local Storage.
+                    localStorage.setItem('enemyWin', localStorage.getItem('enemyWin') + '/' + enemy.type);
+                    localStorage.setItem('countEnemies', localStorage.getItem('countEnemies') + 'x');
+                    console.log(localStorage.getItem('enemyWin'));
+                    console.log(localStorage.getItem('countEnemies'));
+                    
+                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">Claim kingdom!</button><div class="pilar"></div></div>';
                     enemyHealth.innerHTML = 'Health: 0';
+                    heroHealth.innerHTML = 'Health: ' + hero.health;
 
-                    pointsCounter++;
-                    localStorage.setItem('points', pointsCounter);
 
+                } else {
+                    
+                    // ! Save in Local Storage.
+                    localStorage.setItem('enemyWin', localStorage.getItem('enemyWin') + '/' + enemy.type);
+                    localStorage.setItem('countEnemies', localStorage.getItem('countEnemies') + 'x');
+                    console.log(localStorage.getItem('enemyWin'));
+                    console.log(localStorage.getItem('countEnemies'));
+                    
+                    actions.innerHTML = '<div class="btn-wrapper msg"><div class="pilar"></div><p class="btn message">You win!!</p><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.setFight()" class="btn">New enemy!</button><div class="pilar"></div></div><div class="btn-wrapper"><div class="pilar"></div><button onClick="GameManager.reloadPage()" class="btn">Play again!</button><div class="pilar"></div></div>';
+                    enemyHealth.innerHTML = 'Health: 0';
+                    heroHealth.innerHTML = 'Health: ' + hero.health;
+                    
+                }
+                
                 } else {
                     enemyHealth.innerHTML = 'Health: ' + enemy.health;
                 }
@@ -206,10 +242,6 @@ let HeroMoves = {
 
         }
 
-    },
-
-    storePoint: function(num) {
-        localStorage.setItem('points', num);
     }
     
 }

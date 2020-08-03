@@ -295,6 +295,40 @@ body {
     cursor: auto;
 }
 
+.winner-wrapper {
+    position: fixed;
+    left: 0;
+    overflow: auto;
+    /* top: 0; */
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 100px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.success {
+    font-size: 40px!important;
+}
+
+.winner-message {
+    margin-bottom: 80px!important;
+}
+
+.hero-img-success {
+    height: 600px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.btn-success {
+    font-size: 30px;
+}
+
 /* ! Media queries */
 
 @media (max-width: 1440px) {
@@ -331,7 +365,7 @@ body {
 @media (max-width: 1162px) {
 
     .currentStory {
-        height: 150px;
+        height: 100px;
     }
 
     .play {
@@ -444,6 +478,29 @@ body {
         margin-right: 40px;
     }
 
+    .winner-wrapper {
+        padding: 20px;
+    }
+
+    .winner-message {
+        margin-bottom: 20px!important;
+        max-width: none;
+    }
+
+    .hero-img-success {
+        object-fit: cover;
+        height: auto;
+        height: 60%;
+    }
+
+    .success {
+        font-size: 24px!important;
+    }
+
+    .btn-success {
+        font-size: 24px;
+    }
+
 }
 @media (max-width: 480px) {
 
@@ -514,6 +571,30 @@ body {
 
     .stats {
         border: none;
+    }
+
+    .success {
+        font-size: 20px!important;
+    }
+
+    .btn-success {
+        font-size: 20px;
+    }
+
+    .hero-img-success {
+        height: auto;
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 320px) {
+    
+    .hero-img-success {
+        object-fit: cover;
+        height: auto;
+        max-height: 340px;
+        width: 100%;
     }
 
 }

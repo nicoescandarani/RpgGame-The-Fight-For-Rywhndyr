@@ -90,8 +90,20 @@
         transform: none;
     }
 
+    .info-text-container {
+        padding: 20px;
+    }
+
     .info {
         height: 30px;
+    }
+
+    .info-title {
+        font-size: 30px;
+    }
+
+    .info-par {
+        font-size: 20px;
     }
 
 }

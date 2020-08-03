@@ -132,6 +132,15 @@
     transform: rotate(-50deg);
 }
 
+@media (max-width: 1129px) {
+    
+    .menu .ul .li .hmb-h2 {
+        font-size: 40px;
+    }
+
+
+}
+
 
 @media (max-width: 768px) {
 
