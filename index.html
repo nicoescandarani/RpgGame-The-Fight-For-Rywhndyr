@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="hmb.css">
     <link rel="stylesheet" href="info.css">
+    <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
     <script src="js/gameManager.js"></script>
     <script src="js/heroe.js"></script>
     <script src="js/enemy.js"></script>
-    <title>Cards Game</title>
+    <title>The Fight For Rywhndyr</title>
 </head>
 <body>
 
@@ -18,7 +19,6 @@
     <script>
         localStorage.setItem('enemyWin', '');
         localStorage.setItem('countEnemies', '');
-        console.log(localStorage.getItem('enemyWin'));
     </script>
 
 <!-- ! Generate Tools. -->
@@ -30,13 +30,13 @@
         </div>
     </div>
 
-    <div class="info-menu">
+    <div class="info-menu info-menu-active">
         <div class="info-text-container">
             <img src="Assets/close.svg" alt="Close" class="close">
             <div class="info-text">
-                <h2 class="info-title">About the game.</h2>
-                <p class="info-par">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A corrupti temporibus  obcaecati in inventore, natus quam iure ipsum beatae debitis?</p>
-                <p class="info-par">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos odio rem sunt?    Ipsam assumenda omnis cum laborum in ea officiis.</p>
+                <h2 class="info-title">The Fight For Rywhndyr.</h2>
+                <p class="info-par">The kingdom of Rywhndyr has been divided since Dagast The Mad killed the last just king and murdered all of his family and lords. The people couldn´t tollerate it and reveled. A civil war between the highest families and the new king began and soon all became to ashes. Since that great war, this lands are filled with crime and social insecurity. New leaders rise, but with power comes great tempation. They are called the four leaders, and they need to be stoped to secure the crown. We need a new king. Are you the one?</p>
+                <p class="info-par">You will need to pick a general. I´ve provided you already with the best of the kingdom. Please, win of the four leaders and become our new hope.</p>
             </div>
         </div>
     </div>
@@ -63,7 +63,10 @@
 
     <div class="ashes-overlay"></div>
 
-    <div class="currentStory"></div>
+    <div class="currentStory">
+        <img src="Assets/close.svg" alt="Close" class="closeStory">
+        <div class="storyWrapper"></div>
+    </div>
 
     <div class="container">
 
@@ -73,8 +76,8 @@
 
                 <div class="header">
                 
-                    <h1 class="title">Do you dare to play?</h1>
-                    <p class="choose">Choose your character!</p>
+                    <h1 class="title">Do you dare to rule?</h1>
+                    <p class="choose">Choose your general.</p>
 
                 </div>
 

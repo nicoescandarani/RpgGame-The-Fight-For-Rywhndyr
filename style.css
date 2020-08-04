@@ -7,7 +7,7 @@
 }
 
 body {
-    height: 100vh;
+    /* height: 100vh; */
     background-image: url(Assets/Castle1.jpg);
     background-color: #2b2b2b;
     background-repeat: no-repeat;
@@ -21,22 +21,37 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-image: url(Assets/source.gif);
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 10%;
     z-index: -1;
 }
 
 .currentStory {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
     display: none;
-    background-color: #000000b0;
+    background-color: #000000e3;
     padding: 20px;
-    max-width: 1440px;
+    width: 100%;
+    overflow: auto;
+    max-height: 514px;
+    max-width: 1000px;
     margin: 0 auto;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 40px;
     border-radius: 0 0 6px 6px;
+}
+
+.closeStory {
+    padding: 10px;
+    border-radius: 6px;
+    margin-right: 10px;
+    background-color: #555555;
+    height: 60px;
+    position: relative;
+    top: 4%;
+    right: 0;
+    cursor: pointer;
 }
 
 .container {
@@ -79,7 +94,7 @@ body {
     height: 550px;
     width: 30%;
     position: relative;
-    background-image: url(Assets/RpgParchment.png);
+    background-image: url(Assets/RpgParchmentGut.png);
     background-size: cover;
     background-position: center;
 }
@@ -101,7 +116,6 @@ body {
     margin-bottom: 10px;
     height: 330px;
     max-width: 214px;
-
 }
 
 .characterStatsOnGameHero {
@@ -149,23 +163,6 @@ body {
 }
 
 .description-overlay {
-    /* position: absolute; */
-    /* background-color: #141414ce; */
-    /* height: 0;
-    opacity: 0; */
-    /* bottom: 0; */
-    /* left: 0; */
-    /* height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 14px;
-    font-size: 24px;
-    line-height: 30px;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px; */
     display: none;
 }
 
@@ -200,6 +197,7 @@ body {
 }
 
 .stats {
+    font-weight: bold;
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -334,12 +332,12 @@ body {
 @media (max-width: 1440px) {
 
     .currentStory {
-        max-height: 200px;
+        /* max-height: 200px; */
         overflow: auto;
         padding: 10px 20px;
-        font-size: 18px;
-        line-height: 22px;
-        max-width: 1200px;
+        font-size: 30px;
+        line-height: 50px;
+        max-width: 1164px;
     }
 
     .container {
@@ -365,10 +363,16 @@ body {
 @media (max-width: 1162px) {
 
     .currentStory {
-        height: 100px;
+        max-height: 400px;
+        max-width: 80%;
+    }
+    
+    .img-wrapper {
+        height: auto;
     }
 
     .play {
+        height: auto;
         padding: 40px;
         width: 100%;
         background-image: url(Assets/ParchmentResp.png);
@@ -388,6 +392,31 @@ body {
 
 @media (max-width: 924px) {
 
+    .currentStory {
+        width: 90%;
+        max-width: none;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .closeStory {
+        padding: 4px;
+        height: 40px;
+    }
+
+    .btn-wrapper {
+        margin: 0 10px;
+        margin-bottom: 10!important;
+    }
+
+    .actions {
+        margin-bottom: 10px!important;
+    }
+
+    .characterCard {
+        margin-bottom: 10px;
+    }
+
     .main {
         padding: 0;
     }
@@ -403,8 +432,16 @@ body {
     }
 
     .hero-img {
-        height: 330px;
+        height: 150px;
         max-width: 240px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .avatar {
+        height: 150px;
+        width: auto;
     }
 
 }
@@ -418,18 +455,17 @@ body {
         background-repeat: no-repeat;
         background-image: url(Assets/ParchmentResp.png);
     }
-
-    .hero-img {
-        height: 330px;
-        max-width: 240px;
-    }
-
+    
 }
 
 @media (max-width: 768px) {
 
     body {
         background-position: 34%;
+    }
+    
+    .ashes-overlay {
+        display: none;
     }
     
     .options {
@@ -441,11 +477,13 @@ body {
     }
 
     .btn-wrapper {
+        margin-bottom: 10px!important;
+        margin: 0 auto;
         max-width: 300px;
     }
 
     .btn {
-        padding: 10px 24px;
+        padding: 4px;
     }
 
     .container {
@@ -461,7 +499,9 @@ body {
         justify-content: center;
         align-items: center;
         height: auto;
-        width: 100%;
+        margin-bottom: 10px!important;
+        margin: 0 auto;
+        width: 90%;
     }
 
     .characterName{
@@ -502,47 +542,12 @@ body {
     }
 
 }
+
 @media (max-width: 480px) {
 
-    .play {
-        display: block;
-        padding: 40px 0;
+    .currentStory {
+        width: 98%;
     }
-
-    .cardRight {
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .cardLeft {
-        margin-right: 0;
-    }
-
-    .stats {
-        font-size: 18px;
-        padding: 1px;
-        border-right: 1px solid #ffffff;
-    }
-
-    .statsLast {
-        border-right: none;
-    }
-
-}
-
-@media (max-width: 400px) {
-    
-    .hero-img {
-        background-size: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 150px;
-        max-width: 190px;
-    }
-
-}
-
-@media (max-width: 390px) {
 
     .play {
         display: flex;
@@ -570,7 +575,12 @@ body {
     }
 
     .stats {
-        border: none;
+        font-size: 16px;
+        padding: 1px;
+    }
+
+    .statsLast {
+        border-right: none;
     }
 
     .success {
@@ -584,6 +594,18 @@ body {
     .hero-img-success {
         height: auto;
         height: 400px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    
+    .hero-img {
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 150px;
+        max-width: 190px;
     }
 
 }

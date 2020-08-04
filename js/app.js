@@ -10,6 +10,8 @@ const info = document.querySelector('.info-wrapper');
 const infoToolTip = document.querySelector('.info-tooltip');
 const close = document.querySelector('.close');
 const infoMenu = document.querySelector('.info-menu');
+const closeStory = document.querySelector('.closeStory');
+const infoStory = document.querySelector('.currentStory');
 
 // ! Helper Functions.
 
@@ -81,4 +83,8 @@ info.addEventListener('click', () => {
 
 close.addEventListener('click', () => {
     infoClose();
+});
+
+closeStory.addEventListener('click', () => {
+    infoStory.style.display = 'none';
 });
