@@ -16,7 +16,7 @@
     height: 50px;
     border-radius: 50%;
     border: 2px solid white;
-    animation: infoColor 1s linear infinite alternate-reverse;
+    animation: infoColor 2s linear infinite alternate-reverse;
 }
 
 .info-tooltip {
@@ -35,6 +35,14 @@
 
     0% {
         border: 2px solid #ffffff;
+    }
+
+    40% {
+        border: 2px solid #d4ffda;
+    }
+
+    50% {
+        border: 2px solid #f8c7ff;
     }
 
     100% {
