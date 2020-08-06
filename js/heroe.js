@@ -14,6 +14,8 @@ let HeroMoves = {
 
     calcAttack: function() {
         
+        localStorage.setItem('hasEntered', true);
+        
         // ! Get health.
         const ENEMIES_COUNT = 4;
         const SHOW_TIME = 1500;

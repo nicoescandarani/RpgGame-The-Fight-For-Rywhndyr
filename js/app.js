@@ -16,6 +16,7 @@ const infoStory = document.querySelector('.currentStory');
 // ! Helper Functions.
 
 function infoClose () {
+
     info.classList.remove('info-icon-active');
     infoMenu.classList.remove('info-menu-active');
 }
@@ -65,9 +66,19 @@ function lineOut () {
 
 // ! Open Info on load.
 window.onload = function() {
-    setTimeout(() => {
-        infoIconOpen();
-    }, 400);
+
+    
+
+    const hasEntered = localStorage.getItem('hasEntered');
+    console.log(hasEntered);
+
+    if (hasEntered == null) {
+
+        setTimeout(() => {
+            infoIconOpen();
+        }, 400);
+        
+    }
 }
 
 // ! Events.

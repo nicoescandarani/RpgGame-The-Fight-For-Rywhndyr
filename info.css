@@ -14,17 +14,33 @@
 
 .info {
     height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: infoColor 1s linear infinite alternate-reverse;
 }
 
 .info-tooltip {
     transform: translateY(20px);
     opacity: 0;
     position: absolute;
-    top: 50px;
+    top: 59px;
+    font-size: 18px;
     padding: 10px;
     border-radius: 6px;
     background-color: rgba(0, 0, 0, 0.479);
     transition: all 0.2s ease-in-out;
+}
+
+@keyframes infoColor {
+
+    0% {
+        border: 2px solid #ffffff;
+    }
+
+    100% {
+        border: 2px solid #1e91d4;
+    }
+
 }
 
 .info-tooltip-active {
