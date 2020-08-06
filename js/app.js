@@ -63,7 +63,15 @@ function lineOut () {
     three.style.width = "100%";
 }
 
+// ! Open Info on load.
+window.onload = function() {
+    setTimeout(() => {
+        infoIconOpen();
+    }, 400);
+}
+
 // ! Events.
+
 
 hmb.addEventListener('click', () => {
     hmbMenu();
