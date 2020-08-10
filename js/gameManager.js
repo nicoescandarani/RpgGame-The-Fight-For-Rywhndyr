@@ -1,4 +1,5 @@
 // TODO ----> Count points.
+// TODO ----> Loop through multiple songs.
 
 let GameManager = {
     

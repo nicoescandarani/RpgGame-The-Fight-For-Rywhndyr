@@ -12,8 +12,31 @@ const close = document.querySelector('.close');
 const infoMenu = document.querySelector('.info-menu');
 const closeStory = document.querySelector('.closeStory');
 const infoStory = document.querySelector('.currentStory');
+const musicOn = document.querySelector('.on');
+const musicOff = document.querySelector('.off');
+
+const musicOne = new Audio('../Assets/the_trooper.mp3');
+const musicTwo = new Audio('../Assets/no_more_lies.mp3');
+const musicThree = new Audio('../Assets/the_wickerman.mp3');
+const musicList = [musicOne, musicTwo, musicThree];
 
 // ! Helper Functions.
+
+function playMusic () {
+    for (i = 0; i < musicList.length; i++) {
+        musicOne.play();
+    }
+    musicOn.style.display = 'none';
+    musicOff.style.display = 'inline';
+}
+
+function stopMusic () {
+    for (i = 0; i < musicList.length; i++) {
+        musicOne.pause();
+    }
+    musicOn.style.display = 'inline';
+    musicOff.style.display = 'none';
+}
 
 function infoClose () {
 

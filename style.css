@@ -15,6 +15,21 @@ body {
     background-attachment: fixed;
 }
 
+.sound-wrapper {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+
+.sound {
+    height: 40px;
+    cursor: pointer;
+}
+
+.off {
+    display: none;
+}
+
 .ashes-overlay {
     position: fixed;
     top: 0;
