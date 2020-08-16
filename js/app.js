@@ -15,24 +15,41 @@ const infoStory = document.querySelector('.currentStory');
 const musicOn = document.querySelector('.on');
 const musicOff = document.querySelector('.off');
 
-const musicOne = new Audio('../Assets/the_trooper.mp3');
+const musicOne = new Audio('../Assets/30 Seconds Music - Percussive Short Background Music Instrumental.mp3');
 const musicTwo = new Audio('../Assets/no_more_lies.mp3');
 const musicThree = new Audio('../Assets/the_wickerman.mp3');
 const musicList = [musicOne, musicTwo, musicThree];
 
 // ! Helper Functions.
 
+
+let musicIndex = 0;
+
 function playMusic () {
-    for (i = 0; i < musicList.length; i++) {
-        musicOne.play();
+
+    if (musicIndex < musicList.length) {
+        play();
+    } else {
+        musicIndex = 0;
+        play();
+        // musicList[i].pause();
     }
+    
     musicOn.style.display = 'none';
     musicOff.style.display = 'inline';
 }
 
+function play () {
+    musicList[musicIndex].play();
+    musicList[musicIndex].addEventListener('ended', () => {
+        musicIndex++;
+        musicList[musicIndex].play();
+    });
+}
+
 function stopMusic () {
     for (i = 0; i < musicList.length; i++) {
-        musicOne.pause();
+        musicList[i].pause();
     }
     musicOn.style.display = 'inline';
     musicOff.style.display = 'none';
