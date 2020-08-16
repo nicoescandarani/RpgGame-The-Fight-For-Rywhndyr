@@ -15,7 +15,7 @@ const infoStory = document.querySelector('.currentStory');
 const musicOn = document.querySelector('.on');
 const musicOff = document.querySelector('.off');
 
-const musicOne = new Audio('../Assets/30 Seconds Music - Percussive Short Background Music Instrumental.mp3');
+const musicOne = new Audio('../Assets/the_trooper.mp3');
 const musicTwo = new Audio('../Assets/no_more_lies.mp3');
 const musicThree = new Audio('../Assets/the_wickerman.mp3');
 const musicList = [musicOne, musicTwo, musicThree];
@@ -110,8 +110,7 @@ window.onload = function() {
     
 
     const hasEntered = localStorage.getItem('hasEntered');
-    console.log(hasEntered);
-
+    
     if (hasEntered == null) {
 
         setTimeout(() => {
