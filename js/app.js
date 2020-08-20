@@ -15,9 +15,9 @@ const infoStory = document.querySelector('.currentStory');
 const musicOn = document.querySelector('.on');
 const musicOff = document.querySelector('.off');
 
-// const musicOne = new Audio('../Assets/the_trooper.wav');
-// const musicTwo = new Audio('../Assets/no_more_lies.wav');
-// const musicThree = new Audio('../Assets/the_wickerman.wav');
+// const musicOne = new Audio('../Assets/the_trooper.mp3');
+// const musicTwo = new Audio('../Assets/no_more_lies.mp3');
+// const musicThree = new Audio('../Assets/the_wickerman.mp3');
 // const musicList = [musicOne, musicTwo, musicThree];
 
 // ! Helper Functions.
