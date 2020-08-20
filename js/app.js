@@ -15,45 +15,45 @@ const infoStory = document.querySelector('.currentStory');
 const musicOn = document.querySelector('.on');
 const musicOff = document.querySelector('.off');
 
-const musicOne = new Audio('../Assets/the_trooper.mp3');
-const musicTwo = new Audio('../Assets/no_more_lies.mp3');
-const musicThree = new Audio('../Assets/the_wickerman.mp3');
-const musicList = [musicOne, musicTwo, musicThree];
+// const musicOne = new Audio('../Assets/the_trooper.wav');
+// const musicTwo = new Audio('../Assets/no_more_lies.wav');
+// const musicThree = new Audio('../Assets/the_wickerman.wav');
+// const musicList = [musicOne, musicTwo, musicThree];
 
 // ! Helper Functions.
 
 
-let musicIndex = 0;
+// let musicIndex = 0;
 
-function playMusic () {
+// function playMusic () {
 
-    if (musicIndex < musicList.length) {
-        play();
-    } else {
-        musicIndex = 0;
-        play();
-        // musicList[i].pause();
-    }
+//     if (musicIndex < musicList.length) {
+//         play();
+//     } else {
+//         musicIndex = 0;
+//         play();
+//         // musicList[i].pause();
+//     }
     
-    musicOn.style.display = 'none';
-    musicOff.style.display = 'inline';
-}
+//     musicOn.style.display = 'none';
+//     musicOff.style.display = 'inline';
+// }
 
-function play () {
-    musicList[musicIndex].play();
-    musicList[musicIndex].addEventListener('ended', () => {
-        musicIndex++;
-        musicList[musicIndex].play();
-    });
-}
+// function play () {
+//     musicList[musicIndex].play();
+//     musicList[musicIndex].addEventListener('ended', () => {
+//         musicIndex++;
+//         musicList[musicIndex].play();
+//     });
+// }
 
-function stopMusic () {
-    for (i = 0; i < musicList.length; i++) {
-        musicList[i].pause();
-    }
-    musicOn.style.display = 'inline';
-    musicOff.style.display = 'none';
-}
+// function stopMusic () {
+//     for (i = 0; i < musicList.length; i++) {
+//         musicList[i].pause();
+//     }
+//     musicOn.style.display = 'inline';
+//     musicOff.style.display = 'none';
+// }
 
 function infoClose () {
 
